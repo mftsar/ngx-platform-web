@@ -1,0 +1,95 @@
+/*
+ */
+
+// STYLES
+@import './ngx-layout-dropdown.mixin';
+@import './ngx-layout-toolbar-item.mixin';
+@import './ngx-layout-logo.mixin';
+@import './ngx-layout-sidebar.mixin';
+@import './ngx-layout-sidebar-item.mixin';
+@import './ngx-layout-toolbar.mixin';
+@import './ngx-layout.alpha.mixin';
+@import './ngx-layout.beta.mixin';
+@import './ngx-layout.gamma.mixin';
+
+@mixin ngx-layout-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .ngx-layout-container {
+    height: 100%;
+  }
+
+  // LAYOUT
+  .ngx-layout {
+    overflow: hidden;
+    height: calc(100vh);
+
+    .sidebar-toggle {
+      height: 24px;
+      margin-left: auto;
+      color: var(--surface-ground-contrast);
+      mat-icon {
+        max-width: 40px;
+      }
+    }
+
+    .ngx-layout-mat-sidenav {
+      @include mat.elevation(2);
+      .ngx-layout-sidebar-container {
+        .sidebar-item-container {
+        }
+      }
+    }
+    .ngx-layout-body {
+      .ngx-content-container {
+      }
+    }
+  }
+
+  .ngx-layout > ::ng-deep .mat-drawer-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    > .mat-drawer-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      > .ngx-layout-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: inherit;
+        overflow: auto;
+      }
+    }
+  }
+
+  .ngx-layout-body {
+    height: inherit;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    overflow-x: hidden;
+    .ngx-content-container {
+      height: inherit;
+      position: relative;
+      overflow: auto;
+      overflow-x: hidden;
+    }
+  }
+
+  @include ngx-layout-dropdown-mixin($theme);
+  @include ngx-layout-logo-mixin($theme);
+  @include ngx-layout-sidebar-mixin($theme);
+  @include ngx-layout-sidebar-item-mixin($theme);
+  @include ngx-layout-toolbar-mixin($theme);
+  @include ngx-layout-toolbar-item-mixin($theme);
+  @include ngx-layout-alpha-mixin($theme);
+  @include ngx-layout-beta-mixin($theme);
+  @include ngx-layout-gamma-mixin($theme);
+}

@@ -1,0 +1,202 @@
+// API
+
+/*
+  Sidebar: Layout Beta
+ */
+
+$layout-beta__color__sidebar-item: #555;
+$layout-beta__color__sidebar-heading: rgba(0, 0, 0, 0.3);
+$layout-beta__background__sidebar-item__icon: rgba(0, 0, 0, 0.05);
+
+$layout-beta__background-color__sidebar-item: $layout-beta__background__sidebar;
+$layout-beta__background-color__sidebar-item__hover: darken(
+  $layout-beta__background-color__sidebar-item,
+  2
+);
+$layout-beta__background-color__sidebar-item__active: $layout-beta__background-color__sidebar-item__hover;
+
+$layout-beta__background-color__sidebar-item__level1: darken(
+  $layout-beta__background-color__sidebar-item,
+  2.5
+);
+$layout-beta__background-color__sidebar-item__level1__hover: darken(
+  $layout-beta__background-color__sidebar-item__level1,
+  1.5
+);
+$layout-beta__background-color__sidebar-item__level1__active: $layout-beta__background-color__sidebar-item__level1__hover;
+
+$layout-beta__background-color__sidebar-item__level2: darken(
+  $layout-beta__background-color__sidebar-item__level1,
+  2.5
+);
+$layout-beta__background-color__sidebar-item__level2__hover: darken(
+  $layout-beta__background-color__sidebar-item__level2,
+  1.5
+);
+$layout-beta__background-color__sidebar-item__level2__active: $layout-beta__background-color__sidebar-item__level2__hover;
+
+$layout-beta__background-color__sidebar-item__level3: darken(
+  $layout-beta__background-color__sidebar-item__level2,
+  2.5
+);
+$layout-beta__background-color__sidebar-item__level3__hover: darken(
+  $layout-beta__background-color__sidebar-item__level3,
+  1.5
+);
+$layout-beta__background-color__sidebar-item__level3__active: $layout-beta__background-color__sidebar-item__level3__hover;
+
+$layout-beta__background-color__sidebar-item__level4: darken(
+  $layout-beta__background-color__sidebar-item__level3,
+  2.5
+);
+$layout-beta__background-color__sidebar-item__level4__hover: darken(
+  $layout-beta__background-color__sidebar-item__level4,
+  1.5
+);
+$layout-beta__background-color__sidebar-item__level4__active: $layout-beta__background-color__sidebar-item__level4__hover;
+
+$layout-beta__background-color__sidebar-item__level5: darken(
+  $layout-beta__background-color__sidebar-item__level4,
+  2.5
+);
+$layout-beta__background-color__sidebar-item__level5__hover: darken(
+  $layout-beta__background-color__sidebar-item__level5,
+  1.5
+);
+$layout-beta__background-color__sidebar-item__level5__active: $layout-beta__background-color__sidebar-item__level5__hover;
+
+$layout-beta__background-color__sidebar-item__level6: darken(
+  $layout-beta__background-color__sidebar-item__level5,
+  2.5
+);
+$layout-beta__background-color__sidebar-item__level6__hover: darken(
+  $layout-beta__background-color__sidebar-item__level6,
+  1.5
+);
+$layout-beta__background-color__sidebar-item__level6__active: $layout-beta__background-color__sidebar-item__level6__hover;
+
+@mixin ngx-layout-beta-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  // LAYOUT
+  .ngx-layout.beta {
+    overflow: hidden;
+    height: calc(100vh);
+    .ngx-layout-toolbar {
+    }
+    .ngx-layout-mat-sidenav {
+      .ngx-layout-sidebar-container {
+      }
+    }
+    .ngx-layout-body {
+      .ngx-content-container {
+      }
+    }
+
+    /*
+  Toolbar
+   */
+
+    .ngx-layout-toolbar {
+      background: $layout-alpha__background__sidebar;
+      color: $color__text-light;
+
+      .header {
+        background: $layout-alpha__background__sidebar;
+        color: $color__text-light;
+      }
+
+      .menu {
+        .heading {
+          color: $color__text-light;
+        }
+      }
+
+      .search {
+        color: white;
+
+        .mat-input-placeholder {
+          color: white;
+        }
+
+        .mat-input-underline {
+          border-color: white;
+
+          .mat-input-ripple {
+            background-color: white;
+          }
+        }
+      }
+
+      .icon-button .icon {
+        color: $color__text-light;
+      }
+
+      .ngx-layout-toolbar-item-container {
+        a.ngx-layout-item {
+          padding: 16px 16px;
+          position: relative;
+          cursor: pointer;
+          color: $color__text-light;
+          text-decoration: none;
+
+          .icon {
+            margin-right: 6px;
+            font-size: 24px;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+          }
+
+          .name {
+            margin-top: -1px;
+          }
+        }
+
+        &.dropdown-item-active {
+          .ngx-layout-item {
+            background: $layout-alpha__background__sidebar-header;
+            color: #ffffff;
+          }
+        }
+
+        .dropdown {
+          color: $color__text-darker;
+        }
+
+        &:active,
+        &:hover,
+        &:focus {
+          .ngx-layout-item {
+            background: $layout-alpha__background__sidebar-header;
+            color: #ffffff;
+            .icon
+            .letter-icon {
+              background: $layout-alpha__background__sidebar-item__icon;
+            }
+          }
+
+          .dropdown {
+          }
+        }
+      }
+    }
+
+    /*
+  sidebar
+   */
+   .ngx-layout-sidebar-container {
+
+     .ngx-layout-sidebar {
+      //  background: $layout-beta__background__sidebar;
+
+       .menu {
+         .heading {
+           color: $layout-beta__color__sidebar-heading;
+         }
+       }
+     }
+   }
+  }
+}

@@ -1,0 +1,76 @@
+// API
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import '@angular/cdk/overlay-prebuilt.css';
+mat.$theme-ignore-duplication-warnings: true;
+@import './variables/color-palette.var';
+
+// ANGULAR _MATERIAL VAR
+$typographyConfig: mat.define-typography-config(
+  $font-family: var(--font-family),
+  $headline-1: mat.define-typography-level(112px, 112px, 300),
+  $headline-2: mat.define-typography-level(56px, 56px, 400),
+  $headline-3: mat.define-typography-level(45px, 48px, 400),
+  $headline-4: mat.define-typography-level(34px, 40px, 400),
+  $headline-5: mat.define-typography-level(24px, 32px, 400),
+  $headline-6: mat.define-typography-level(20px, 32px, 500),
+  $body-2: mat.define-typography-level(14px, 24px, 500),
+  $body-1: mat.define-typography-level(14px, 20px, 400),
+  $caption: mat.define-typography-level(12px, 20px, 400),
+  // Line-height must be unit-less fraction of the font-size. $input: mat.define-typography-level(16px, 1.125, 400)
+);
+
+// THEME VAR
+$primary-color: mat.define-palette($primary-palette);
+$accent-color: mat.define-palette($accent-palette);
+$warn-color: mat.define-palette($warn-palette);
+
+// _MAT LIGHT THEME
+$mat-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary-color,
+      accent: $accent-color,
+      warn: $warn-color,
+    ),
+    typography: $typographyConfig,
+    density: 0,
+  )
+);
+// _MAT DARK THEME
+$mat-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary-color,
+      accent: $accent-color,
+      warn: $warn-color,
+    ),
+    typography: $typographyConfig,
+    density: 0,
+  )
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.core();
+@include mat.legacy-core();
+@include mat.typography-hierarchy($typographyConfig);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+@include mat.all-component-themes($mat-light-theme);
+@include mat.all-legacy-component-themes($mat-light-theme);
+
+.dark {
+  // Include theme styles for core and each component used in your app.
+  // Alternatively, you can import and @include the theme mixins for each component
+  // that you are using.
+  @include mat.all-component-themes($mat-dark-theme);
+  @include mat.all-legacy-component-themes($mat-dark-theme);
+}

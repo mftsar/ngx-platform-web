@@ -1,0 +1,21 @@
+// STYLE VAR
+@import './variables.ion';
+
+// ANGULAR MATERIAL OVERRIDES AND GLOBAL STYLES
+@mixin ngx-ionic-theme($theme) {
+  // CUSTOM ANGULAR MATERIAL STYLE
+  // @include ngx-mat-button-mixin($theme);
+  // @include ngx-mat-card-mixin($theme);
+  // @include ngx-mat-dialog-mixin($theme);
+  // @include ngx-mat-form-field-mixin($theme);
+  // @include ngx-mat-icon-mixin($theme);
+  // @include ngx-mat-list-mixin($theme);
+  // @include ngx-mat-loading-mixin($theme);
+  // @include ngx-mat-misc-mixin($theme);
+  // @include ngx-mat-sidenav-mixin($theme);
+  // @include ngx-mat-table-mixin($theme);
+  // @include ngx-mat-toolbar-mixin($theme);
+
+  // // LAYOUT STYLES
+  // @include ngx-layout-mixin($theme);
+}

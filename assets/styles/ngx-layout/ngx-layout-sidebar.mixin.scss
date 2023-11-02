@@ -1,0 +1,190 @@
+/*
+  Sidebar
+ */
+
+$padding-left__sidebar-item: 36px;
+$padding-right__sidebar-item: 24px;
+
+/*
+  Sidebar-Item: Padding
+ */
+
+$padding__sidebar-item__level1: $padding-left__sidebar-item + 10px;
+$padding__sidebar-item__level2: $padding-left__sidebar-item + 20px;
+$padding__sidebar-item__level3: $padding-left__sidebar-item + 30px;
+$padding__sidebar-item__level4: $padding-left__sidebar-item + 40px;
+$padding__sidebar-item__level5: $padding-left__sidebar-item + 50px;
+$padding__sidebar-item__level6: $padding-left__sidebar-item + 50px;
+
+$layout-alpha__background__sidebar: #303441;
+$layout-alpha__background__sidebar_header: #2b303c;
+
+$layout-beta__background__sidebar: white;
+
+@mixin ngx-layout-sidebar-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .ngx-layout-sidebar-container {
+    height: 100%;
+
+    .ngx-layout-sidebar {
+      color: var(--surface-ground-contrast);
+      width: $width__sidebar;
+      transition: width 0.3s ease;
+      height: 100%;
+      flex: 0 0 64px;
+      .header {
+        background-color: var(--surface-overlay);
+      }
+
+      .sub-menu {
+        transition: height 0.4s cubic-bezier(0.35, 0, 0.25, 1);
+      }
+      .sub-menu.expanded {
+        background-color: var(--surface-hover) !important;
+      }
+
+      .heading {
+        height: 20px;
+        margin-left: auto;
+        align-self: center;
+        text-align: center;
+
+        .mat-icon.toggle {
+          color: var(--surface-color);
+          width: $font_size__sidebar_collapsed-action-toggle;
+          height: $font_size__sidebar_collapsed-action-toggle;
+          line-height: $font_size__sidebar_collapsed-action-toggle;
+          font-size: $font_size__sidebar_collapsed-action-toggle;
+          cursor: pointer;
+        }
+        .toggle:hover {
+          color: var(--surface-700);
+        }
+      }
+
+      .menu {
+        height: #{$height__toolbar - 10px};
+        max-height: #{$height__toolbar - 10px};
+        .name {
+          font-size: 12px;
+          text-transform: uppercase;
+          font-weight: 500;
+          margin-left: 16px;
+        }
+        .actions {
+          height: 12px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  // WORKS WITH NGX SIDENAV COLLAPSE DIREVTIVE
+  .mat-drawer-side {
+    border-right: 0;
+    &.sidenav-collapsed {
+      transform: translate3d(
+        -#{$width__sidebar-collapsed - $width__sidebar-collapsed-collapsed},
+        0,
+        0
+      ) !important;
+      transition: transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+      & + .mat-drawer-content,
+      & + .cdk-visually-hidden + .mat-drawer-content {
+        margin-left: 0 !important;
+      }
+      .ngx-layout-sidebar {
+        width: 0 !important;
+      }
+      &.mat-drawer-opened {
+        & + .mat-drawer-content,
+        & + .cdk-visually-hidden + .mat-drawer-content {
+          margin-left: $width__sidebar-collapsed-collapsed !important;
+        }
+        .ngx-layout-sidebar {
+          width: $width__sidebar-collapsed !important;
+        }
+      }
+
+      .header .actions,
+      .header .ngx-logo {
+        transform: translate3d(-50px, 0, 0);
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 25ms;
+      }
+
+      .menu {
+        .heading {
+          .name {
+            transform: translate3d(-50px, 0, 0);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 40ms;
+          }
+
+          .toggle {
+            transform: translate3d(-50px, 0, 0);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 40ms;
+          }
+        }
+
+        .ngx-layout-item {
+          .name {
+            transform: translate3d(-50px, 0, 0);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 40ms;
+          }
+
+          .icon,
+          .letter-icon {
+            transform: translate3d(8px, 0, 0);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          }
+        }
+
+        .sub-menu {
+          .dropdown-indicator {
+            transform: translate3d(-10px, 0, 0);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          }
+        }
+      }
+
+      &.open {
+        transform: translate3d(0, 0, 0) !important;
+
+        .header .actions,
+        .header .ngx-logo {
+          transform: translate3d(0, 0, 0);
+        }
+
+        .menu {
+          .heading {
+            .name {
+              transform: translate3d(0, 0, 0);
+            }
+
+            .toggle {
+              transform: translate3d(0, 0, 0);
+            }
+          }
+
+          .ngx-layout-item {
+            .name {
+              transform: translate3d(0, 0, 0);
+            }
+
+            .icon,
+            .letter-icon {
+              transform: translate3d(0, 0, 0);
+            }
+          }
+
+          .sub-menu {
+            .dropdown-indicator {
+              transform: translate3d(0, 0, 0);
+            }
+          }
+        }
+      }
+    }
+  }
+}

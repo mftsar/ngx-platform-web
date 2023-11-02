@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkngx_platform_web=self.webpackChunkngx_platform_web||[]).push([[816],{28816:(M,l,o)=>{o.r(l),o.d(l,{AppUicModule:()=>c});var t=o(97054),_=o(50334),n=o(20755);let c=(()=>{class u{}return u.\u0275fac=function(p){return new(p||u)},u.\u0275mod=n.oAB({type:u}),u.\u0275inj=n.cJS({imports:[_.NgxUickitThemingLayoutModule,t.fV]}),u})()}}]);

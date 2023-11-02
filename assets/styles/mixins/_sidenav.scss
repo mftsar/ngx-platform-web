@@ -1,0 +1,12 @@
+/*
+ */
+
+@mixin ngx-mat-sidenav-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .ngx-sidebar-container {
+    color: var(--surface-color);
+  }
+}

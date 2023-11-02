@@ -1,0 +1,24 @@
+/*
+ */
+
+@mixin ngx-mat-button-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .mat-mdc-unelevated-button.mat-primary {
+    --mdc-filled-button-label-text-color: var(--primary-color-contrast);
+  }
+
+  .mat-mdc-unelevated-button.mat-accent {
+    --mdc-filled-button-label-text-color: var(--accent-color-contrast);
+  }
+
+  .mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-label-text-color: var(--primary-color-contrast);
+  }
+
+  .mat-mdc-raised-button.mat-accent {
+    --mdc-protected-button-label-text-color: var(--accent-color-contrast);
+  }
+}

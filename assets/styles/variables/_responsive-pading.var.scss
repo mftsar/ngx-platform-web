@@ -1,0 +1,137 @@
+// API
+
+@mixin responsivePadding($dir: all, $reverse: false) {
+  @if $reverse == false {
+    @if $dir == 'all' {
+      padding: $padding__page;
+
+      @include gt-md {
+        padding: $padding__page__small;
+      }
+    } @else if $dir == 'top' {
+      padding-top: $padding__page;
+
+      @include gt-md {
+        padding-top: $padding__page__small;
+      }
+    } @else if $dir == 'right' {
+      padding-right: $padding__page;
+
+      @include gt-md {
+        padding-right: $padding__page__small;
+      }
+    } @else if $dir == 'bottom' {
+      padding-bottom: $padding__page;
+
+      @include gt-md {
+        padding-bottom: $padding__page__small;
+      }
+    } @else if $dir == 'left' {
+      padding-left: $padding__page;
+
+      @include gt-md {
+        padding-left: $padding__page__small;
+      }
+    }
+  } @else if $reverse == true {
+    @if $dir == 'all' {
+      margin: -$padding__page;
+
+      @include gt-md {
+        margin: -$padding__page__small;
+      }
+    } @else if $dir == 'top' {
+      margin-top: -$padding__page;
+
+      @include gt-md {
+        margin-top: -$padding__page__small;
+      }
+    } @else if $dir == 'right' {
+      margin-right: -$padding__page;
+
+      @include gt-md {
+        margin-right: -$padding__page__small;
+      }
+    } @else if $dir == 'bottom' {
+      margin-bottom: -$padding__page;
+
+      @include gt-md {
+        margin-bottom: -$padding__page__small;
+      }
+    } @else if $dir == 'left' {
+      margin-left: -$padding__page;
+
+      @include gt-md {
+        margin-left: -$padding__page__small;
+      }
+    }
+  }
+}
+
+@mixin responsivePaddingHalf($dir: all, $reverse: false) {
+  @if $reverse == false {
+    @if $dir == 'all' {
+      padding: $padding__page__half;
+
+      @include gt-md {
+        padding: $padding__page__small__half;
+      }
+    } @else if $dir == 'top' {
+      padding-top: $padding__page__half;
+
+      @include gt-md {
+        padding-top: $padding__page__small__half;
+      }
+    } @else if $dir == 'right' {
+      padding-right: $padding__page__half;
+
+      @include gt-md {
+        padding-right: $padding__page__small__half;
+      }
+    } @else if $dir == 'bottom' {
+      padding-bottom: $padding__page__half;
+
+      @include gt-md {
+        padding-bottom: $padding__page__small__half;
+      }
+    } @else if $dir == 'left' {
+      padding-left: $padding__page__half;
+
+      @include gt-md {
+        padding-left: $padding__page__small__half;
+      }
+    }
+  } @else if $reverse == true {
+    @if $dir == 'all' {
+      margin: -$padding__page__half;
+
+      @include gt-md {
+        margin: -$padding__page__small__half;
+      }
+    } @else if $dir == 'top' {
+      margin-top: -$padding__page__half;
+
+      @include gt-md {
+        margin-top: -$padding__page__small__half;
+      }
+    } @else if $dir == 'right' {
+      margin-right: -$padding__page__half;
+
+      @include gt-md {
+        margin-right: -$padding__page__small__half;
+      }
+    } @else if $dir == 'bottom' {
+      margin-bottom: -$padding__page__half;
+
+      @include gt-md {
+        margin-bottom: -$padding__page__small__half;
+      }
+    } @else if $dir == 'left' {
+      margin-left: -$padding__page__half;
+
+      @include gt-md {
+        margin-left: -$padding__page__small__half;
+      }
+    }
+  }
+}

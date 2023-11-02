@@ -1,0 +1,232 @@
+// API
+
+/*
+  Layout Alpha
+ */
+
+@mixin ngx-layout-alpha-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  // LAYOUT
+  .ngx-layout.alpha {
+    overflow: hidden;
+    height: calc(100vh);
+    /*
+    Toolbar
+    */
+
+    .sidebar-toggle {
+      height: 24px;
+      margin-left: auto;
+      color: var(--primary-color-contrast);
+      mat-icon {
+        max-width: 40px;
+      }
+    }
+
+    .ngx-layout-toolbar {
+      color: var(--primary-color-contrast);
+      background: var(--primary-color);
+      .search-bar {
+        .search-wrapper {
+          input.search-input {
+            background: rgba(48, 52, 65, 0.05);
+
+            &:hover {
+              background: rgba(48, 52, 65, 0.1);
+            }
+          }
+
+          &.focus {
+            input.search-input {
+              background: rgba(48, 52, 65, 0.1);
+            }
+          }
+        }
+      }
+
+      .icon-button .icon {
+        color: var(--primary-color-contrast);
+      }
+
+      .ngx-layout-toolbar-item-container {
+
+        a.ngx-layout-item {
+          color: var(--primary-color-contrast);
+        }
+
+        &.dropdown-item-active {
+          .ngx-layout-item {
+            background-color: var(--surface-hover);
+          }
+        }
+      }
+    }
+
+    /*
+    sidebar
+    */
+
+    .ngx-layout-sidebar-container {
+      .ngx-layout-sidebar {
+        // background: $layout-alpha__background__sidebar;
+
+        .header {
+          background: var(--primary-color);
+          color: var(--primary-color-contrast);
+        }
+
+        .menu {
+          .name {
+            // color: $layout-alpha__color__sidebar-heading;
+          }
+          .heading {
+            .mat-icon.toggle {
+              color: var(--primary-400);
+            }
+            .toggle:hover {
+              color: var(--primary-color);
+            }
+          }
+        }
+      }
+      .ngx-layout-item {
+        // color: $layout-alpha__color__sidebar-item;
+
+        &:hover {
+          .name {
+            color: var(--primary-color) !important;
+          }
+        }
+
+        &.active {
+          color: var(--primary-color) !important;
+          .name {
+            color: var(--primary-color) !important;
+          }
+        }
+
+        .icon,
+        .letter-icon {
+          background-color: var(--primary-rgba-04) !important;
+          color: var(--primary-color) !important;
+        }
+      }
+
+      .sidebar-item-container {
+        > .ngx-layout-item {
+          &:hover {
+            background-color: var(--primary-rgba-04) !important;
+          }
+
+          &.active {
+            background-color: var(--primary-rgba-04) !important;
+          }
+        }
+
+        > .sub-menu {
+          // Level 1 aka 1st Dropdown
+          background-color: var(--primary-rgba-04) !important;
+
+          .sidebar-item-container > .ngx-layout-item {
+            padding-left: $padding__sidebar-item__level1;
+
+            &:hover {
+              background: $layout-beta__background-color__sidebar-item__level1__hover;
+            }
+
+            &.active {
+              background: $layout-beta__background-color__sidebar-item__level1__active;
+            }
+          }
+
+          > .sub-menu {
+            // Level 2
+            background: $layout-beta__background-color__sidebar-item__level2;
+
+            .sidebar-item-container > .ngx-layout-item {
+              padding-left: $padding__sidebar-item__level2;
+
+              &:hover {
+                background: $layout-beta__background-color__sidebar-item__level2__hover;
+              }
+
+              &.active {
+                background: $layout-beta__background-color__sidebar-item__level2__active;
+              }
+            }
+
+            > .sub-menu {
+              // Level 3
+              background: $layout-beta__background-color__sidebar-item__level3;
+
+              .sidebar-item-container > .ngx-layout-item {
+                padding-left: $padding__sidebar-item__level3;
+
+                &:hover {
+                  background: $layout-beta__background-color__sidebar-item__level3__hover;
+                }
+
+                &.active {
+                  background: $layout-beta__background-color__sidebar-item__level3__active;
+                }
+              }
+
+              > .sub-menu {
+                // Level 4
+                background: $layout-beta__background-color__sidebar-item__level4;
+
+                .sidebar-item-container > .ngx-layout-item {
+                  padding-left: $padding__sidebar-item__level4;
+
+                  &:hover {
+                    background: $layout-beta__background-color__sidebar-item__level4__hover;
+                  }
+
+                  &.active {
+                    background: $layout-beta__background-color__sidebar-item__level4__active;
+                  }
+                }
+
+                > .sub-menu {
+                  // Level 5
+                  background: $layout-beta__background-color__sidebar-item__level5;
+
+                  .sidebar-item-container > .ngx-layout-item {
+                    padding-left: $padding__sidebar-item__level5;
+
+                    &:hover {
+                      background: $layout-beta__background-color__sidebar-item__level5__hover;
+                    }
+
+                    &.active {
+                      background: $layout-beta__background-color__sidebar-item__level5__active;
+                    }
+                  }
+
+                  .sub-menu {
+                    // Infinite Levels after
+                    background: $layout-beta__background-color__sidebar-item__level6;
+
+                    .sidebar-item-container > .ngx-layout-item {
+                      padding-left: $padding__sidebar-item__level6;
+
+                      &:hover {
+                        background: $layout-beta__background-color__sidebar-item__level6__hover;
+                      }
+
+                      &.active {
+                        background: $layout-beta__background-color__sidebar-item__level6__active;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

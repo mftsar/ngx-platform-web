@@ -1,0 +1,16 @@
+// API
+
+@mixin ngx-layout-logo-mixin($theme) {
+  // LOGO
+  .ngx-logo-container {
+    max-height: $height__toolbar;
+    margin: auto;
+    display: flex;
+  }
+
+  .ngx-logo {
+    height: 100%;
+    width: 100%;
+    max-height: 54px;
+  }
+}

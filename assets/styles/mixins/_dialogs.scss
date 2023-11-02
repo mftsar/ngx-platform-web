@@ -1,0 +1,19 @@
+/*
+ */
+
+@mixin ngx-mat-dialog-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .cdk-global-overlay-wrapper {
+    overflow: auto;
+  }
+
+  .cdk-overlay-container {
+    .mat-dialog-container {
+      border-radius: 0px;
+      padding: 0px;
+    }
+  }
+}

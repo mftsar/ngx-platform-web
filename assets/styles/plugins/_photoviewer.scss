@@ -1,0 +1,9 @@
+//API
+
+@forward 'photoviewer/dist/photoviewer';
+
+@mixin ngx-photoviewer-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+}

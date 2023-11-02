@@ -1,0 +1,66 @@
+/*
+    THEMING
+*/
+
+/* General */
+$scale: 14px; /* main font size */
+$borderRadius: 12px; /* border radius of layout element e.g. card, sidebar */
+$transitionDuration: 0.2s; /* transition duration of layout elements e.g. sidebar, overlay menus */
+
+// COLOR
+$color__online: green;
+$color__offline: red;
+$color__border: #e0e0e0;
+$color__ngx-layout-dropdown: rgba(0, 0, 0, 0.84);
+
+$color__text-darkest: rgba(0, 0, 0, 0.87);
+$color__text-darker: #333;
+$color__text-dark: #666;
+$color__text-light: #999;
+
+// BACKGROUND COLOR
+$background_color__data-table-elements: whitesmoke;
+
+// BORDER COLOR
+$border_color__black: rgba(0, 0, 0, 0.84);
+
+/*
+Logo VAR
+*/
+
+/*
+ HEIGHT VAR
+*/
+
+$height__toolbar: 64px;
+$height__logo: 64px;
+
+/*
+  WIDTH VAR
+*/
+
+$min-width__action-button: 156px;
+
+$width__action-bar: 274px;
+$width__sidebar: 274px;
+$width__sidebar-collapsed: 274px;
+$width__sidebar-collapsed-collapsed: 64px;
+
+$font_size__sidebar_collapsed-action-toggle: 12px;
+$font_size__expanded_icon: 14px;
+
+// PADDING
+$padding__page: 24px;
+$padding__page__small: 16px;
+$padding__page-card-content: 16px;
+$padding__page__half: calc($padding__page / 2);
+$padding__page__small__half: calc($padding__page__small / 2);
+$padding__ngx-layout-dropdown-item: 8px 16px;
+$padding__ngx-layout-menu-item: 0px 16px;
+
+// MARGIN
+$margin__page__half: calc($padding__page / 2);
+$margin__page__small__half: calc($padding__page__small / 2);
+
+// STYLE VAR
+@import './variables/index';

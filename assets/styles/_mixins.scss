@@ -1,0 +1,32 @@
+// API
+@use '@angular/material' as mat;
+// MIXINS
+@import './mixins/index';
+
+// LAYOUT STYLES
+@import './ngx-layout/ngx-layout.mixin';
+
+// ANGULAR MATERIAL OVERRIDES AND GLOBAL STYLES
+@mixin ngx-angular-material-theme($theme) {
+  // CUSTOM ANGULAR MATERIAL STYLE
+  @include ngx-mat-button-mixin($theme);
+  @include ngx-mat-card-mixin($theme);
+  @include ngx-mat-dialog-mixin($theme);
+  @include ngx-mat-drawer-mixin($theme);
+  @include ngx-mat-form-field-mixin($theme);
+  @include ngx-mat-icon-mixin($theme);
+  @include ngx-mat-list-mixin($theme);
+  @include ngx-mat-misc-mixin($theme);
+  @include ngx-mat-sidenav-mixin($theme);
+  @include ngx-mat-table-mixin($theme);
+  @include ngx-mat-toast-mixin($theme);
+  @include ngx-mat-toolbar-mixin($theme);
+}
+
+@include ngx-angular-material-theme($mat-light-theme);
+@include ngx-layout-mixin($mat-light-theme);
+
+.dark {
+  @include ngx-angular-material-theme($mat-dark-theme);
+  @include ngx-layout-mixin($mat-dark-theme);
+}

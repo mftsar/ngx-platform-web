@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkngx_platform_web=self.webpackChunkngx_platform_web||[]).push([[921],{11921:(h,o,t)=>{t.r(o),t.d(o,{AppGithubModule:()=>E});var _=t(12004),l=t(54178),M=t(82515),u=t(20755);let E=(()=>{class n{}return n.\u0275fac=function(d){return new(d||n)},n.\u0275mod=u.oAB({type:n}),n.\u0275inj=u.cJS({imports:[M.NgxGithubModule.forRoot(_.N),l.yN]}),n})()}}]);

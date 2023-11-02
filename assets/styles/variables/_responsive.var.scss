@@ -1,0 +1,22 @@
+// API
+
+$media-gt-md: 'screen and (max-width: 1279px)';
+@mixin gt-md {
+  @media #{$media-gt-md} {
+    @content;
+  }
+}
+
+$media-md: 'screen and (min-width: 960px) and (max-width: 1279px)';
+@mixin md {
+  @media #{$media-md} {
+    @content;
+  }
+}
+
+$media-lt-sm: 'screen and (max-width: 959px)';
+@mixin lt-sm {
+  @media #{$media-lt-sm} {
+    @content;
+  }
+}

@@ -1,0 +1,206 @@
+/*
+  Sidebar-Item: Padding
+ */
+
+$padding-left__dropdown-item: 24px;
+$padding-right__dropdown-item: 18px;
+$padding-top-bottom__dropdown-item: 10px;
+$padding__dropdown-item: $padding-top-bottom__dropdown-item
+  $padding-right__dropdown-item $padding-top-bottom__dropdown-item
+  $padding-left__dropdown-item;
+$background__dropdown-item__hover: #f5f5f5;
+$background__dropdown-item__icon: rgba(0, 0, 0, 0.05);
+$color__navigation-item: $color__text-darker;
+
+$padding__dropdown-item__level1: $padding-left__dropdown-item + 10px;
+$padding__dropdown-item__level2: $padding-left__dropdown-item + 20px;
+$padding__dropdown-item__level3: $padding-left__dropdown-item + 30px;
+$padding__dropdown-item__level4: $padding-left__dropdown-item + 40px;
+$padding__dropdown-item__level5: $padding-left__dropdown-item + 50px;
+$padding__dropdown-item__level6: $padding-left__dropdown-item + 50px;
+
+@mixin ngx-layout-dropdown-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  a.dropdown-item {
+    color: var(--surface-ground-contrast);
+    padding: $padding__dropdown-item;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.1s;
+
+    &:hover,
+    &:focus,
+    &.active {
+      background: var(--surface-hover);
+    }
+
+    .icon {
+      font-size: 24px;
+    }
+    .name {
+      margin-left: 16px;
+    }
+
+    .dropdown-indicator {
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      font-size: 16px;
+      margin-right: 6px;
+      transform: rotate(-90deg);
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      margin-left: auto;
+      align-self: center;
+
+      &.rotate {
+        transform: rotate(0);
+      }
+    }
+
+    .letter-icon {
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 12px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 5px;
+      background: $background__dropdown-item__icon;
+    }
+  }
+
+  .dropdown-item-container {
+    > .dropdown-item {
+      &:hover {
+        background-color: var(--surface-hover);
+      }
+
+      &.active {
+        background-color: var(--surface-hover);
+      }
+    }
+
+    > .sub-menu {
+      // Level 1 aka 1st Dropdown
+      background: var(--surface-overlay);
+
+      > .dropdown-item-container {
+        > .dropdown-item {
+          padding-left: $padding__dropdown-item__level1;
+
+          &:hover {
+            background: var(--surface-hover);
+          }
+
+          &.active {
+            background: var(--surface-hover);
+          }
+        }
+
+        > .sub-menu {
+          // Level 2
+          background: $layout-beta__background-color__sidebar-item__level2;
+
+          > .dropdown-item-container {
+            > .dropdown-item {
+              padding-left: $padding__dropdown-item__level2;
+
+              &:hover {
+                background: $layout-beta__background-color__sidebar-item__level2__hover;
+              }
+
+              &.active {
+                background: $layout-beta__background-color__sidebar-item__level2__active;
+              }
+            }
+
+            > .sub-menu {
+              // Level 3
+              background: $layout-beta__background-color__sidebar-item__level3;
+
+              > .dropdown-item-container {
+                > .dropdown-item {
+                  padding-left: $padding__dropdown-item__level3;
+
+                  &:hover {
+                    background: $layout-beta__background-color__sidebar-item__level3__hover;
+                  }
+
+                  &.active {
+                    background: $layout-beta__background-color__sidebar-item__level3__active;
+                  }
+                }
+
+                > .sub-menu {
+                  // Level 4
+                  background: $layout-beta__background-color__sidebar-item__level4;
+
+                  > .dropdown-item-container {
+                    > .dropdown-item {
+                      padding-left: $padding__dropdown-item__level4;
+
+                      &:hover {
+                        background: $layout-beta__background-color__sidebar-item__level4__hover;
+                      }
+
+                      &.active {
+                        background: $layout-beta__background-color__sidebar-item__level4__active;
+                      }
+                    }
+
+                    > .sub-menu {
+                      // Level 5
+                      background: $layout-beta__background-color__sidebar-item__level5;
+
+                      > .dropdown-item-container {
+                        > .dropdown-item {
+                          padding-left: $padding__dropdown-item__level5;
+
+                          &:hover {
+                            background: $layout-beta__background-color__sidebar-item__level5__hover;
+                          }
+
+                          &.active {
+                            background: $layout-beta__background-color__sidebar-item__level5__active;
+                          }
+                        }
+
+                        .sub-menu {
+                          // Infinite Levels after
+                          background: $layout-beta__background-color__sidebar-item__level6;
+
+                          .dropdown-item-container > .dropdown-item {
+                            padding-left: $padding__dropdown-item__level6;
+
+                            &:hover {
+                              background: $layout-beta__background-color__sidebar-item__level6__hover;
+                            }
+
+                            &.active {
+                              background: $layout-beta__background-color__sidebar-item__level6__active;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown-item-container .sub-menu {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+}

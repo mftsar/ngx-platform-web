@@ -1,0 +1,20 @@
+/*
+ */
+
+@mixin ngx-mat-icon-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .material-icons {
+    &[color='primary'] {
+      color: var(--primary-color);
+    }
+    &[color='accent'] {
+      color: var(--accent-color);
+    }
+    &[color='warn'] {
+      color: var(--warn-color);
+    }
+  }
+}

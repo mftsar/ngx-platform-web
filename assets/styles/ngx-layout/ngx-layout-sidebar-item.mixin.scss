@@ -1,0 +1,293 @@
+// API
+
+$layout-alpha__background__toolbar: white;
+$layout-alpha__color__sidebar-item: rgba(255, 255, 255, 0.5);
+$layout-alpha__color__sidebar-heading: rgba(255, 255, 255, 0.3);
+$layout-alpha__background__sidebar-item__icon: rgba(255, 255, 255, 0.05);
+
+$layout-alpha__background-color__sidebar-item: $layout-alpha__background__sidebar;
+$layout-alpha__background-color__sidebar-item__hover: darken(
+  $layout-alpha__background-color__sidebar-item,
+  2
+);
+$layout-alpha__background-color__sidebar-item__active: $layout-alpha__background-color__sidebar-item__hover;
+
+$layout-alpha__background-color__sidebar-item__level1: darken(
+  $layout-alpha__background-color__sidebar-item,
+  2.5
+);
+$layout-alpha__background-color__sidebar-item__level1__hover: darken(
+  $layout-alpha__background-color__sidebar-item__level1,
+  1.5
+);
+$layout-alpha__background-color__sidebar-item__level1__active: $layout-alpha__background-color__sidebar-item__level1__hover;
+
+$layout-alpha__background-color__sidebar-item__level2: darken(
+  $layout-alpha__background-color__sidebar-item__level1,
+  2.5
+);
+$layout-alpha__background-color__sidebar-item__level2__hover: darken(
+  $layout-alpha__background-color__sidebar-item__level2,
+  1.5
+);
+$layout-alpha__background-color__sidebar-item__level2__active: $layout-alpha__background-color__sidebar-item__level2__hover;
+
+$layout-alpha__background-color__sidebar-item__level3: darken(
+  $layout-alpha__background-color__sidebar-item__level2,
+  2.5
+);
+$layout-alpha__background-color__sidebar-item__level3__hover: darken(
+  $layout-alpha__background-color__sidebar-item__level3,
+  1.5
+);
+$layout-alpha__background-color__sidebar-item__level3__active: $layout-alpha__background-color__sidebar-item__level3__hover;
+
+$layout-alpha__background-color__sidebar-item__level4: darken(
+  $layout-alpha__background-color__sidebar-item__level3,
+  2.5
+);
+$layout-alpha__background-color__sidebar-item__level4__hover: darken(
+  $layout-alpha__background-color__sidebar-item__level4,
+  1.5
+);
+$layout-alpha__background-color__sidebar-item__level4__active: $layout-alpha__background-color__sidebar-item__level4__hover;
+
+$layout-alpha__background-color__sidebar-item__level5: darken(
+  $layout-alpha__background-color__sidebar-item__level4,
+  2.5
+);
+$layout-alpha__background-color__sidebar-item__level5__hover: darken(
+  $layout-alpha__background-color__sidebar-item__level5,
+  1.5
+);
+$layout-alpha__background-color__sidebar-item__level5__active: $layout-alpha__background-color__sidebar-item__level5__hover;
+
+$layout-alpha__background-color__sidebar-item__level6: darken(
+  $layout-alpha__background-color__sidebar-item__level5,
+  2.5
+);
+$layout-alpha__background-color__sidebar-item__level6__hover: darken(
+  $layout-alpha__background-color__sidebar-item__level6,
+  1.5
+);
+$layout-alpha__background-color__sidebar-item__level6__active: $layout-alpha__background-color__sidebar-item__level6__hover;
+
+@mixin ngx-layout-sidebar-item-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .ngx-layout-sidebar-container {
+    a.ngx-layout-item {
+      color: var(--surface-ground-contrast);
+      background-color: var(--surface-overlay);
+      padding: 0 $padding-right__sidebar-item 0 $padding-left__sidebar-item;
+      position: relative;
+      text-decoration: none;
+      font-size: 14px;
+      height: 40px;
+      cursor: pointer;
+      transition: color 0.1s;
+      display: flex;
+      width: auto;
+      .icon {
+        height: 38px;
+        width: 38px;
+        line-height: 38px;
+        font-size: 18px;
+        text-align: center;
+        background: $layout-beta__background__sidebar-item__icon;
+        align-self: center;
+      }
+      .letter-icon {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 12px;
+        text-align: center;
+        margin-right: 5px;
+        background: $layout-beta__background__sidebar-item__icon;
+        align-self: center;
+      }
+      .name {
+        align-self: center;
+        margin-left: 16px;
+      }
+      .dropdown-indicator {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: 6px;
+        transform: rotate(-90deg);
+        transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        align-self: center;
+        &.rotate {
+          transform: rotate(0);
+        }
+      }
+
+      &:hover {
+        background-color: var(--surface-hover);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .ngx-layout-item.expanded {
+      background-color: var(--surface-hover) !important;
+    }
+
+    .ngx-layout-item.active {
+      background-color: var(--surface-hover) !important;
+    }
+    &:hover,
+    &:focus {
+      > .ngx-layout-item:not(.expanded) {
+        background-color: var(--surface-hover) !important;
+      }
+    }
+
+    .sidebar-item-container {
+      > .ngx-layout-item {
+        &:hover {
+          background-color: var(--surface-hover) !important;
+        }
+
+        &.active {
+          background-color: var(--surface-hover) !important;
+        }
+      }
+
+      > .sub-menu {
+        // Level 1 aka 1st Dropdown
+        background-color: var(--surface-hover) !important;
+
+        .sidebar-item-container > .ngx-layout-item {
+          padding-left: $padding__sidebar-item__level1;
+
+          &:hover {
+            background: $layout-beta__background-color__sidebar-item__level1__hover;
+          }
+
+          &.active {
+            background: $layout-beta__background-color__sidebar-item__level1__active;
+          }
+        }
+
+        > .sub-menu {
+          // Level 2
+          background: $layout-beta__background-color__sidebar-item__level2;
+
+          .sidebar-item-container > .ngx-layout-item {
+            padding-left: $padding__sidebar-item__level2;
+
+            &:hover {
+              background: $layout-beta__background-color__sidebar-item__level2__hover;
+            }
+
+            &.active {
+              background: $layout-beta__background-color__sidebar-item__level2__active;
+            }
+          }
+
+          > .sub-menu {
+            // Level 3
+            background: $layout-beta__background-color__sidebar-item__level3;
+
+            .sidebar-item-container > .ngx-layout-item {
+              padding-left: $padding__sidebar-item__level3;
+
+              &:hover {
+                background: $layout-beta__background-color__sidebar-item__level3__hover;
+              }
+
+              &.active {
+                background: $layout-beta__background-color__sidebar-item__level3__active;
+              }
+            }
+
+            > .sub-menu {
+              // Level 4
+              background: $layout-beta__background-color__sidebar-item__level4;
+
+              .sidebar-item-container > .ngx-layout-item {
+                padding-left: $padding__sidebar-item__level4;
+
+                &:hover {
+                  background: $layout-beta__background-color__sidebar-item__level4__hover;
+                }
+
+                &.active {
+                  background: $layout-beta__background-color__sidebar-item__level4__active;
+                }
+              }
+
+              > .sub-menu {
+                // Level 5
+                background: $layout-beta__background-color__sidebar-item__level5;
+
+                .sidebar-item-container > .ngx-layout-item {
+                  padding-left: $padding__sidebar-item__level5;
+
+                  &:hover {
+                    background: $layout-beta__background-color__sidebar-item__level5__hover;
+                  }
+
+                  &.active {
+                    background: $layout-beta__background-color__sidebar-item__level5__active;
+                  }
+                }
+
+                .sub-menu {
+                  // Infinite Levels after
+                  background: $layout-beta__background-color__sidebar-item__level6;
+
+                  .sidebar-item-container > .ngx-layout-item {
+                    padding-left: $padding__sidebar-item__level6;
+
+                    &:hover {
+                      background: $layout-beta__background-color__sidebar-item__level6__hover;
+                    }
+
+                    &.active {
+                      background: $layout-beta__background-color__sidebar-item__level6__active;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .sidebar-item-container .sub-menu {
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+
+      &:before,
+      &:after {
+        content: ' ';
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        z-index: 3;
+      }
+
+      &:before {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0, transparent);
+        top: 0;
+      }
+
+      &:after {
+        background: linear-gradient(-180deg, rgba(0, 0, 0, 0.3) 0, transparent);
+        bottom: 0;
+      }
+    }
+  }
+}

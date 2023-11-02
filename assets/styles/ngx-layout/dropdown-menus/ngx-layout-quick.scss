@@ -1,0 +1,18 @@
+// APP
+
+@mixin ngx-layout-quick-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .ngx-layout-toolbar-item-container.quick {
+    position: unset;
+    a.ngx-layout-item {
+      position: relative;
+      padding: 20px 16px;
+    }
+    .dropdown {
+      min-width: unset;
+    }
+  }
+}

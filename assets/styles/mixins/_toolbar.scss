@@ -1,0 +1,12 @@
+/*
+ */
+
+@mixin ngx-mat-toolbar-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .mat-toolbar {
+    color: var(--surface-color);
+  }
+}

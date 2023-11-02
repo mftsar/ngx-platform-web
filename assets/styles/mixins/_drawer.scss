@@ -1,0 +1,19 @@
+/*
+ */
+
+@mixin ngx-mat-drawer-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .mat-drawer {
+    background-color: var(--surface-overlay);
+    color: var(--surface-overlay-contrast);
+  }
+  .mat-drawer-container {
+    background-color: var(--surface-ground);
+  }
+  .mat-drawer-content {
+    background-color: var(--surface-ground);
+  }
+}
